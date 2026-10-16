@@ -1,0 +1,28 @@
+## Build
+**/bin/
+**/obj/
+**/out/
+artifacts/
+*.user
+*.suo
+.vs/
+*.pfx
+!driver/SoundBurstVad/certs/.gitkeep
+
+## Driver fetch / secrets
+driver/SoundBurstVad/sysvad/
+driver/SoundBurstVad/certs/*.pfx
+driver/SoundBurstVad/certs/*.cer
+driver/SoundBurstVad/out/
+
+## OS / IDE
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+## Logs
+*.log
+*.etl

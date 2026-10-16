@@ -1,0 +1,58 @@
+; SoundBurstVad.inf — placeholder INF used after SysVAD fetch + branding.
+; Real Device/Manufacturer strings are applied by apply-soundburst-branding.ps1.
+;
+; Class GUID for MEDIA: {4d36e96c-e325-11ce-bfc1-08002be10318}
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = MEDIA
+ClassGuid   = {4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider    = %ProviderName%
+DriverVer   = 10/16/2026,0.1.0.0
+CatalogFile = soundburstvad.cat
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[SourceDisksNames]
+1 = %DiskName%,,,
+
+[SourceDisksFiles]
+SoundBurstVad.sys = 1,,
+
+[Manufacturer]
+%MfgName% = SoundBurst,NTamd64
+
+[SoundBurst.NTamd64]
+%SoundBurst.DeviceDesc% = SoundBurst_Install, ROOT\SoundBurstVad
+
+[SoundBurst_Install.NT]
+CopyFiles = SoundBurst_CopyFiles
+AddReg    = SoundBurst_AddReg
+
+[SoundBurst_CopyFiles]
+SoundBurstVad.sys
+
+[SoundBurst_AddReg]
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,SoundBurstVad.sys
+
+[SoundBurst_Install.NT.Services]
+AddService = SoundBurstVad,0x00000002,SoundBurst_Service
+
+[SoundBurst_Service]
+DisplayName    = %SoundBurst.SvcDesc%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %13%\SoundBurstVad.sys
+
+[Strings]
+ProviderName           = "SoundBurst"
+MfgName                = "SoundBurst"
+DiskName               = "SoundBurst Virtual Audio"
+SoundBurst.DeviceDesc  = "SoundBurst Virtual Audio Device"
+SoundBurst.SvcDesc     = "SoundBurst Virtual Audio Driver"
+FriendlyNameSpeakers   = "SoundBurst Speakers"
+FriendlyNameMicrophone = "SoundBurst Microphone"

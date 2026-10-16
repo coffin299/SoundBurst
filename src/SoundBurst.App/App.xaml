@@ -1,0 +1,12 @@
+﻿<Application x:Class="SoundBurst.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="BgBrush" Color="#FF1A1F24"/>
+        <SolidColorBrush x:Key="PanelBrush" Color="#FF242B33"/>
+        <SolidColorBrush x:Key="AccentBrush" Color="#FF3DDC97"/>
+        <SolidColorBrush x:Key="TextBrush" Color="#FFF2F5F7"/>
+        <SolidColorBrush x:Key="MutedBrush" Color="#FF9AA7B2"/>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FB6DB8A5-CE91-4EB5-9435-35DF418C5155}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundBurst.Core", "src\SoundBurst.Core\SoundBurst.Core.csproj", "{54F2EAF8-0E39-4DDC-AE5F-ADA7A223DBE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundBurst.Audio", "src\SoundBurst.Audio\SoundBurst.Audio.csproj", "{33849343-D5CF-41D7-BC11-B391ACB457F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundBurst.App", "src\SoundBurst.App\SoundBurst.App.csproj", "{53045E97-C3C4-45D9-9AE2-D92CE65ED05D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54F2EAF8-0E39-4DDC-AE5F-ADA7A223DBE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54F2EAF8-0E39-4DDC-AE5F-ADA7A223DBE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54F2EAF8-0E39-4DDC-AE5F-ADA7A223DBE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54F2EAF8-0E39-4DDC-AE5F-ADA7A223DBE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33849343-D5CF-41D7-BC11-B391ACB457F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33849343-D5CF-41D7-BC11-B391ACB457F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33849343-D5CF-41D7-BC11-B391ACB457F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33849343-D5CF-41D7-BC11-B391ACB457F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53045E97-C3C4-45D9-9AE2-D92CE65ED05D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53045E97-C3C4-45D9-9AE2-D92CE65ED05D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53045E97-C3C4-45D9-9AE2-D92CE65ED05D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53045E97-C3C4-45D9-9AE2-D92CE65ED05D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{54F2EAF8-0E39-4DDC-AE5F-ADA7A223DBE6} = {FB6DB8A5-CE91-4EB5-9435-35DF418C5155}
+		{33849343-D5CF-41D7-BC11-B391ACB457F4} = {FB6DB8A5-CE91-4EB5-9435-35DF418C5155}
+		{53045E97-C3C4-45D9-9AE2-D92CE65ED05D} = {FB6DB8A5-CE91-4EB5-9435-35DF418C5155}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "SemVer without v prefix (e.g. 0.1.0)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release-app:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Resolve version
+        id: ver
+        shell: pwsh
+        run: |
+          if ("${{ github.event_name }}" -eq "workflow_dispatch") {
+            $v = "${{ inputs.version }}"
+          } else {
+            $v = "${{ github.ref_name }}".TrimStart('v')
+          }
+          echo "version=$v" >> $env:GITHUB_OUTPUT
+
+      - name: Install vpk
+        run: dotnet tool install -g vpk
+
+      - name: Publish + pack
+        shell: pwsh
+        run: |
+          $version = "${{ steps.ver.outputs.version }}"
+          dotnet publish src/SoundBurst.App/SoundBurst.App.csproj -c Release -r win-x64 --self-contained true -o artifacts/publish
+          vpk pack --packId SoundBurst --packVersion $version --packDir artifacts/publish --mainExe SoundBurst.exe --outputDir artifacts/velopack --packTitle SoundBurst --runtime win-x64
+
+      - name: Upload Velopack packages
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.ver.outputs.version }}
+          name: SoundBurst ${{ steps.ver.outputs.version }}
+          generate_release_notes: true
+          files: |
+            artifacts/velopack/**
+          body: |
+            ## App
+            Install via the Velopack Setup from this release. In-app updates pull from GitHub Releases.
+
+            ## Driver (separate)
+            Virtual audio driver is **not** auto-updated with the app.
+            Build/sign/install using `scripts/` and `driver/SoundBurstVad/README.md` (Test Mode).
+            Attach signed driver assets to this release manually when available.
